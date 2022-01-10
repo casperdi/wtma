@@ -1,3 +1,20 @@
 body {
-  margin: 10%;
+  margin: 5% 20% 5% 20%;
+  text-align: center;
+  background-image: url(img/elon.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+#timer {
+  text-align: center;
+  font-size: 40px;
+}
+
+.resultParas {
+  width: 50%;
+  margin-left:  auto;
+  margin-right:  auto;
 }
