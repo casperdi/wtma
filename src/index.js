@@ -12,25 +12,38 @@ const coursesFi = ["Jauhelihapihvi, ruskeaa kermakastiketta ja keitettyä peruna
                 "Juusto / Kana / Kasvis / Halloumi burgeri ja ranskalaiset"];
 
                 
-                 document.getElementById('item').innerHTML = coursesFi; 
-                 let itemEN;
-                 let itemFI;
+                document.getElementById('item').innerHTML = coursesFi; 
 
-                 
-                const sortMenu = () => {
+                let itemEN;
+                let itemFI;
+
+                const sortMenuAsc = () => {
                   
-                  coursesEn.sort();
-                  coursesFi.sort();
-
                   if(document.getElementById('item').innerHTML == coursesEn){
+                    coursesEn.sort();
                     document.getElementById('item').innerHTML = coursesEn;
                     
-                  } else {
+                    
+                  } else if (document.getElementById('item').innerHTML == coursesFi ) {
+                    coursesFi.sort();
                     document.getElementById('item').innerHTML = coursesFi;
-
                   }
 
 
+                };
+
+                const sortMenuDesc = () => {
+              
+                 if(document.getElementById('item').innerHTML == coursesEn){
+                  coursesEn.sort();
+                  coursesEn.reverse();
+                  document.getElementById('item').innerHTML = coursesEn;
+                    
+                  } else if (document.getElementById('item').innerHTML == coursesFi){
+                    coursesFi.sort();
+                    coursesFi.reverse();
+                    document.getElementById('item').innerHTML = coursesFi;
+                  } 
                 };
                  
 
@@ -64,7 +77,8 @@ const coursesFi = ["Jauhelihapihvi, ruskeaa kermakastiketta ja keitettyä peruna
                 };
 
                 document.getElementById('lang').addEventListener('click', langChange);
-                document.getElementById('sort').addEventListener('click', sortMenu);
+                document.getElementById('sorta').addEventListener('click', sortMenuAsc);
+                document.getElementById('sortd').addEventListener('click', sortMenuDesc);
                 document.getElementById('random').addEventListener('click', random);
                 
                 
