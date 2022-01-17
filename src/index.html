@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body>
-    <p>
-      Hello! Open the developer tools, please.<br />
-      Start by editing the files in <code>src/</code> folder.
-    </p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <nav>
+      <a href="">Etusivu</a>
+      <a href="">Ruokalistat</a>
+      <a href="">Ravintolat</a>
+      <a href="">Yhteystiedot</a>
+      
+
+
+    
+      <input type="text" placeholder="Hae ravintolan nimellä...">
+      
+    </nav>
+
+  <header>
+    <div class="slogan">
+      <h1>Lounari.</h1>
+      <p>Missä tänään syötäisiin.</p>
+  </div>
+  
+  <img src="assets/img/header.jpg" alt="mexican food">
+  </header>
+
+  <main>
+    <p class="text">Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. <br>Palvelu etsii lähelläsin olevat ruokapaikat, sekä näyttää niiden päivittäisen lounaslistan. <br> Viikottaiset lounaslistat ovat myös käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.</p>
+    <button id="lang">Vaihda kieli</button>
+      <button id="sort">Järjestä menu</button>
+      <button id="random">Valitse yksi</button>
+
+    <div class="container">
+      <div class="item item1" id='item'></div>
+      <div class="item item2">Ravintola 2</div>
+    </div>
+  </main>
+  
+</body>
 </html>

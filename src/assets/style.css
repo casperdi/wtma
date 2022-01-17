@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body { margin: 0; }
+
+nav{
+    display: flex;
+    position: relative;
+    width: calc(100vw);
+    padding-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ac6665;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    align-self: center;
+    transition: 0.2s;
+    margin-right: 5px;
+}
+
+nav a:hover{
+    background-color: #90ef90;
+    border-radius: 10px;
+}
+
+
+nav input{
+    border-color: #ac6665;
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 200px;
+    margin-left: auto;
+    margin-right: 2%;
+    padding: 0.4%;
+}
+
+header{
+    display: flex;
+    width: calc(100vw);
+    overflow: hidden;
+    justify-content: center;
+    height: 255px
+}
+
+header img {
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.slogan{
+    width: 50%;
+    background-color: #90ef90;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: bold;
+    height: 255px;
+}
+
+header h1{
+    font-size: 16px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+header p { margin-top: 0; }
+
+.text{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 2%;
+    font-weight: 700;
+    margin-bottom: 2%;
+}
+
+.container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 100px;
+}
+
+.item{
+    border: 2px dashed #ac6665 ;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    height: auto;
+    padding: 20px;
+}
