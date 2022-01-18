@@ -1,4 +1,4 @@
-import LunchMenu from './assets/lunchmenu.json';
+import SodexoLunchMenu from './assets/lunchmenu.json';
 const coursesFI = [];
 const coursesEN = [];
 let language = 'fi';
@@ -9,7 +9,7 @@ let currentMenu = coursesFI;
  * 
  * @param {string} menu -JSON Menu to be parsed
  */
-const parseLunchMenu = (menu) => {
+const parseSodexoLunchMenu = (menu) => {
   const courses = Object.values(menu);
   for (const course of courses) {
     coursesFI.push(course.title_fi);
@@ -74,7 +74,7 @@ const randomDish = (courses) => {
 
 
 const init = () => {
-  parseLunchMenu(LunchMenu.courses);
+  parseSodexoLunchMenu(LunchMenu.courses);
   renderMenu();
   // Event listeners for buttons
   document.getElementById('lang').addEventListener('click', () => {
