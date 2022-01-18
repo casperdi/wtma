@@ -1,73 +1,92 @@
-import LunchMenu from '../lunchmenu.json';
-console.log(LunchMenu);
-let itemEN;
-let itemFI;
+import LunchMenu from './assets/lunchmenu.json';
 const coursesFI = [];
 const coursesEN = [];
+let language = 'fi';
+let currentMenu = coursesFI;
 
-for (let i = 1; i <= 9; i++) {
-  
-  coursesFI.push( LunchMenu.courses[i].title_fi);
-  console.log(coursesFI);
-  
-  coursesEN .push(LunchMenu.courses[i].title_en);
-  console.log(coursesEN);
-  
+/**
+ * Extract course titles from sodexo menu JSON object
+ * 
+ * @param {string} menu -JSON Menu to be parsed
+ */
+const parseLunchMenu = (menu) => {
+  const courses = Object.values(menu);
+  for (const course of courses) {
+    coursesFI.push(course.title_fi);
+    coursesEN.push(course.title_en);
+  };
 };
 
-document.getElementById('item').innerHTML = coursesFI;
-/* document.getElementById('item').innerHTML = coursesEN; */
+/**
+ * Render menu courses on page
+ */
+const renderMenu = () => {
+  const ulElement = document.getElementById('item');
+  ulElement.innerHTML = ' ';
+  for (const item of currentMenu) {
+    const listElement = document.createElement('li');
+    listElement.textContent = item;
+    ulElement.appendChild(listElement);
+  }
+};
 
+/**
+ * Toggle between en/fi
+ */
 const langChange = () => {
-  if(document.getElementById('item').innerHTML == coursesEN || document.getElementById('item').innerHTML == itemEN){
-    document.getElementById('item').innerHTML = coursesFI;
+  if (language === 'fi') {
     
-  } else if (document.getElementById('item').innerHTML == coursesFI || document.getElementById('item').innerHTML == itemFI ){
-    document.getElementById('item').innerHTML = coursesEN;
-    
-  }
-};
-
-const sortMenuAsc = () => {
-                  
-  if(document.getElementById('item').innerHTML == coursesEN){
-    coursesEN.sort();
-    document.getElementById('item').innerHTML = coursesEN;
-    
-    
-  } else if (document.getElementById('item').innerHTML == coursesFI ) {
-    coursesFI.sort();
-    document.getElementById('item').innerHTML = coursesFI;
-  }
-
-
-};
-const sortMenuDesc = () => {
-              
-  if(document.getElementById('item').innerHTML == coursesEN){
-   coursesEN.sort();
-   coursesEN.reverse();
-   document.getElementById('item').innerHTML = coursesEN;
-     
-   } else if (document.getElementById('item').innerHTML == coursesFI){
-     coursesFI.sort();
-     coursesFI.reverse();
-     document.getElementById('item').innerHTML = coursesFI;
-   } 
- };
-
- const random = () => {
-
-  if( document.getElementById('item').innerHTML == itemEN || document.getElementById('item').innerHTML == coursesEN){
-    itemEN = coursesEN[Math.floor(Math.random()*coursesEN.length)];
-    document.getElementById('item').innerHTML = itemEN; 
+    language = 'en';
+    currentMenu = coursesEN;
+    console.log(language);
   } else {
-    itemFI = coursesFI[Math.floor(Math.random()*coursesFI.length)];
-    document.getElementById('item').innerHTML = itemFI; 
+    language = 'fi';
+    currentMenu = coursesFI;
   }
 };
 
-document.getElementById('lang').addEventListener('click', langChange);
-document.getElementById('sorta').addEventListener('click', sortMenuAsc);
-document.getElementById('sortd').addEventListener('click', sortMenuDesc);
-document.getElementById('random').addEventListener('click', random);
+/**
+ * Sort alphabetically
+ * 
+ * @param {Array} courses menu array
+ * @param {String} order 'asc'/'desc'
+ * @returns {Array} sorted menu
+ */
+const sortCourses = (courses, order = 'asc') => {
+  const sortedCourses = courses.sort();
+  if (order === 'desc') {
+    sortedCourses.reverse();
+  }
+  return sortedCourses;
+};
+
+
+/**
+ * Picks a random dish
+ * 
+ * @param {Array} courses 
+ * @returns {String} random dish
+ */
+const randomDish = (courses) => {
+  const randomIndex = Math.floor(Math.random() * courses.length);
+  return courses[randomIndex];
+};
+
+
+const init = () => {
+  parseLunchMenu(LunchMenu.courses);
+  renderMenu();
+  // Event listeners for buttons
+  document.getElementById('lang').addEventListener('click', () => {
+    langChange();
+    renderMenu();
+  });
+  document.getElementById('random').addEventListener('click', () => {
+    alert(randomDish(currentMenu));
+  });
+  document.getElementById('sorta').addEventListener('click', () => {
+    currentMenu = sortCourses(currentMenu, 'desc');
+    renderMenu();
+  });
+};
+init();
