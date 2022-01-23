@@ -11,7 +11,7 @@
 
 /**
  * Validate array names and return true/false 
- * @param {} array 
+ * @param {Array} array 
  */
 const validateMealName = (array) => {
   const regex = new RegExp(/^[A-ZÖÄÅ]{1}[a-zöäå]{4,64}([-,\\\/()\w\d\s]+)$/);
@@ -25,7 +25,7 @@ const validateMealName = (array) => {
 
 /**
  * Sort menu in desc order
-* @param {} array 
+* @param {Array} array 
  */
 const sortMenu = (array) => {
   let sortedMenu = array.sort((a, b) => {
@@ -36,7 +36,7 @@ const sortMenu = (array) => {
 
 /**
  * Raise all prices of the array by 15%
- * @param {} array 
+ * @param {Array} array 
  */
 const raisePrice = (array) => {
   let raisedPrices = array.map(price => price.price*1.15);
@@ -45,7 +45,7 @@ const raisePrice = (array) => {
 
 /**
  * Calculate the cost of the whole menu
- * @param {} array 
+ * @param {Array} array 
  */
 const wholeMenu = (array) => {
   console.log(array.reduce((a, b) => ({price: a.price + b.price})));
