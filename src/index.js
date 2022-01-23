@@ -1,16 +1,17 @@
+import FazerData from './modules/fazer-data';
 import SodexoData from './modules/sodexo-data';
 SodexoData;
-
+FazerData;
 let language = 'fi';
 let currentMenu = SodexoData.coursesFI;
 
-
-
+console.log(SodexoData);
+console.log(FazerData);
 /**
  * Render menu courses on page
  */
 const renderMenu = () => {
-  const ulElement = document.getElementById('item');
+  const ulElement = document.getElementById('sodexo');
   ulElement.innerHTML = ' ';
   for (const item of currentMenu) {
     const listElement = document.createElement('li');

@@ -46,17 +46,19 @@ header{
     width: calc(100vw);
     overflow: hidden;
     justify-content: center;
-    height: 255px
-}
-
-header img {
-    width: 100%;
-    height: 700px;
-    overflow: hidden;
+    height: 25vh;
+    background-image: url('img/header.jpg');
+    background-repeat: no-repeat;
+    background-position-y: -400px;
+    background-position-X: 400px;
+}  
+  
+.image{
+    width: 50%;
 }
 
 .slogan{
-    width: 50%;
+    width: 60%;
     background-color: #90ef90;
     text-align: center;
     display: flex;
@@ -65,7 +67,8 @@ header img {
     flex-direction: column;
     font-size: 16px;
     font-weight: bold;
-    height: 255px;
+    height: 25vh;
+    clip-path: polygon(0% 0%, 84% 0, 100% 100%, 0% 100%);
 }
 
 header h1{
