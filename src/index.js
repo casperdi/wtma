@@ -1,21 +1,10 @@
-import SodexoLunchMenu from './assets/lunchmenu.json';
-const coursesFI = [];
-const coursesEN = [];
-let language = 'fi';
-let currentMenu = coursesFI;
+import SodexoData from './modules/sodexo-data';
+SodexoData;
 
-/**
- * Extract course titles from sodexo menu JSON object
- * 
- * @param {string} menu -JSON Menu to be parsed
- */
-const parseSodexoLunchMenu = (menu) => {
-  const courses = Object.values(menu);
-  for (const course of courses) {
-    coursesFI.push(course.title_fi);
-    coursesEN.push(course.title_en);
-  };
-};
+let language = 'fi';
+let currentMenu = SodexoData.coursesFI;
+
+
 
 /**
  * Render menu courses on page
@@ -35,13 +24,12 @@ const renderMenu = () => {
  */
 const langChange = () => {
   if (language === 'fi') {
-    
     language = 'en';
-    currentMenu = coursesEN;
+    currentMenu = SodexoData.coursesEN;
     console.log(language);
   } else {
     language = 'fi';
-    currentMenu = coursesFI;
+    currentMenu = SodexoData.coursesFI;
   }
 };
 
@@ -74,7 +62,7 @@ const randomDish = (courses) => {
 
 
 const init = () => {
-  parseSodexoLunchMenu(LunchMenu.courses);
+  
   renderMenu();
   // Event listeners for buttons
   document.getElementById('lang').addEventListener('click', () => {
