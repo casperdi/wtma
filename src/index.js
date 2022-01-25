@@ -1,13 +1,13 @@
- import LunchMenu from './assets/fazer-week-example.json';
- 
- const Menu =
-[
-  {name: 'Lingonberry jam', price: 4.00},
-  {name: 'Mushroom and bean casserole', price: 5.50},
-  {name: 'Chili-flavoured wheat', price: 3.00},
-  {name: 'Vegetarian soup', price: 4.80},
-  {name: 'Pureed root vegetable soup with smoked cheese', price: 8.00}
-];
+import LunchMenu from './assets/fazer-week-example.json';
+
+const Menu =
+  [
+    { name: 'Lingonberry jam', price: 4.00 },
+    { name: 'Mushroom and bean casserole', price: 5.50 },
+    { name: 'Chili-flavoured wheat', price: 3.00 },
+    { name: 'Vegetarian soup', price: 4.80 },
+    { name: 'Pureed root vegetable soup with smoked cheese', price: 8.00 }
+  ];
 
 /**
  * Validate array names and return true/false 
@@ -17,7 +17,7 @@ const validateMealName = (array) => {
   const regex = new RegExp(/^[A-ZÖÄÅ]{1}[a-zöäå]{4,64}([-,\\\/()\w\d\s]+)$/);
   let results = array.map((dish) => dish.name);
 
-   results.forEach((result) => {
+  results.forEach((result) => {
     console.log("DISH: " + result + " REGEX: " + regex.test(result));
   });
   console.log(results);
@@ -35,12 +35,17 @@ const sortMenu = (array) => {
 };
 
 /**
+ * Display only items costing less than 5€
+ */
+console.log('Filter', Menu.filter(item => item.price < 5));
+
+/**
  * Raise all prices of the array by 15%
  * @param {Array} array 
  */
 const raisePrice = (array) => {
-  let raisedPrices = array.map(price => price.price*1.15);
-   console.log(raisedPrices);
+  let raisedPrices = array.map(price => price.price * 1.15);
+  console.log(raisedPrices);
 };
 
 /**
@@ -48,7 +53,7 @@ const raisePrice = (array) => {
  * @param {Array} array 
  */
 const wholeMenu = (array) => {
-  console.log(array.reduce((a, b) => ({price: a.price + b.price})));
+  console.log(array.reduce((a, b) => ({ price: a.price + b.price })));
 };
 
 /**
@@ -78,9 +83,25 @@ const veganMeals = () => {
   console.log(vegMeals);
 };
 
+const getVegeMeals = (dayOfWeek) => {
+
+  let vegeMeals = [];
+  for (const menu of LunchMenu.LunchMenus[dayOfWeek].SetMenus) {
+    for (const meal of menu.Meals) {
+      if (meal.Diets.includes('Veg')) {
+        vegeMeals.push(meal.Name);
+      }
+    }
+  };
+  return vegeMeals;
+};
+
 
 validateMealName(Menu);
 sortMenu(Menu);
 raisePrice(Menu);
 wholeMenu(Menu);
-veganMeals();
+/* veganMeals(); */
+for (let i = 0; i < LunchMenu.LunchMenus.length; i++) {
+  console.log(getVegeMeals(i));
+}
