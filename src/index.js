@@ -3,17 +3,17 @@ import SodexoData from './modules/sodexo-data';
 SodexoData;
 FazerData;
 let language = 'fi';
-let currentMenu = SodexoData.coursesFI;
+// let currentMenu = SodexoData.coursesFI;
 
 console.log(SodexoData);
 console.log(FazerData);
 /**
  * Render menu courses on page
  */
-const renderMenu = () => {
-  const ulElement = document.getElementById('sodexo');
+const renderMenu = (data, targetId) => {
+  const ulElement = document.getElementById(targetId);
   ulElement.innerHTML = ' ';
-  for (const item of currentMenu) {
+  for (const item of data) {
     const listElement = document.createElement('li');
     listElement.textContent = item;
     ulElement.appendChild(listElement);
@@ -26,11 +26,13 @@ const renderMenu = () => {
 const langChange = () => {
   if (language === 'fi') {
     language = 'en';
-    currentMenu = SodexoData.coursesEN;
+    renderMenu(SodexoData.coursesEn, 'sodexo');
+    renderMenu(FazerData.coursesEn, 'fazer');
     console.log(language);
   } else {
     language = 'fi';
-    currentMenu = SodexoData.coursesFI;
+    renderMenu(SodexoData.coursesFi, 'sodexo');
+    renderMenu(FazerData.coursesFi, 'fazer');
   }
 };
 
@@ -63,8 +65,9 @@ const randomDish = (courses) => {
 
 
 const init = () => {
-  
-  renderMenu();
+
+  renderMenu(SodexoData.coursesFi, 'sodexo');
+  renderMenu(FazerData.coursesFi, 'fazer');
   // Event listeners for buttons
   document.getElementById('lang').addEventListener('click', () => {
     langChange();
@@ -75,7 +78,8 @@ const init = () => {
   });
   document.getElementById('sorta').addEventListener('click', () => {
     currentMenu = sortCourses(currentMenu, 'desc');
-    renderMenu();
+    // TODO fix sorting for both restaurants
+    // renderMenu();
   });
 };
 init();

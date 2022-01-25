@@ -1,6 +1,6 @@
 import SodexoLunchMenu from '../assets/sodexo-lunch-menu.json';
-const coursesFI = [];
-const coursesEN = [];
+const coursesFi = [];
+const coursesEn = [];
 /**
  * Extract course titles from sodexo menu JSON object
  * 
@@ -9,11 +9,11 @@ const coursesEN = [];
 const parseSodexoLunchMenu = (menu) => {
     const courses = Object.values(menu);
     for (const course of courses) {
-        coursesFI.push(course.title_fi);
-        coursesEN.push(course.title_en);
+        coursesFi.push(course.title_fi);
+        coursesEn.push(course.title_en);
     };
 };
 parseSodexoLunchMenu(SodexoLunchMenu.courses);
 
-const SodexoData = { coursesFI, coursesEN };
+const SodexoData = { coursesFi, coursesEn };
 export default SodexoData;
