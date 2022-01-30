@@ -2,6 +2,17 @@ import FazerData from './modules/fazer-data';
 import SodexoData from './modules/sodexo-data';
 SodexoData;
 FazerData;
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').then(registration => {
+      console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  });
+}
+
 let language = 'fi';
 // let currentMenu = SodexoData.coursesFI;
 
