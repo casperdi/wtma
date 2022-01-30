@@ -64,6 +64,7 @@ const randomDish = (courses) => {
 };
 
 
+
 const init = () => {
 
   renderMenu(SodexoData.coursesFi, 'sodexo');
