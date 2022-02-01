@@ -82,3 +82,5 @@ const timerIncrement = () =>{
     hurryUp();
   };
 };  
+
+idleTimer();
