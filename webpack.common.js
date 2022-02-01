@@ -31,7 +31,7 @@ module.exports = {
         collapseWhitespace: true
       },
     }),
-    new WorkboxPlugin.GenerateSW({
+    /* new WorkboxPlugin.GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
@@ -49,7 +49,7 @@ module.exports = {
           sizes: [96, 128, 192, 256, 384, 512]
         },
       ]
-    }),
+    }), */
     new ESLintPlugin({})
   ],
   output: {
