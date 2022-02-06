@@ -1,6 +1,33 @@
+:root {
+    --primary-color: #43E04F;
+    --secondary-color: #940E3F;
+    --main-accent-color: #343A40;
+    --secondary-accent-color: #9BADBF;
+    --reg-text: #000;
+    --header-font:  'Roboto Slab', serif;
+    --header-font-regular: 400;
+    --header-font-bold: 800;
+    --primary-font: 'Lato', sans-serif; 
+    --primary-font-bold: 700;
+    --primary-font-regular: 400;
+    --header-font-size: 60px;
+    --slogan-font-size: 23px;
+    --restaurant-font-size: 21px;
+    --body-font-size: 20px;
+    --menu-font-size: 10px;
+    --location-font-size: 14px;
+}
+
 *{
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* */
+}
+
+html{
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--primary-font); 
 }
 
 body { margin: 0; }
@@ -8,13 +35,15 @@ body { margin: 0; }
 nav{
     display: flex;
     position: relative;
-    width: calc(100vw);
+    width: 100%;
     padding-left: 20px;
+    font-weight: var(--primary-font-bold);
+    font-size: var(--body-font-size);
 }
 
 nav a {
     text-decoration: none;
-    color: #ac6665;
+    color: var(--secondary-color);
     padding-right: 1%;
     padding-left: 1%;
     padding-top: 0.5%;
@@ -25,13 +54,17 @@ nav a {
 }
 
 nav a:hover{
-    background-color: #90ef90;
+    background-color: var(--primary-color);
     border-radius: 10px;
 }
 
+.selected {
+    text-decoration: underline;
+}
 
-nav input{
-    border-color: #ac6665;
+
+#searchbar{
+    border: 2px solid var(--secondary-color);
     border-radius: 5px;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -39,18 +72,36 @@ nav input{
     margin-left: auto;
     margin-right: 2%;
     padding: 0.4%;
+    display: flex;
+}
+
+#searchbar input {
+    border: none;
+    width: 155px;
+}
+
+#searchbar input:focus {
+    border: none;
+}
+
+
+
+#searchbar img{
+    width: 15%;
+    padding-right: 5px;
 }
 
 header{
     display: flex;
-    width: calc(100vw);
+    width: 100%;
     overflow: hidden;
     justify-content: center;
     height: 25vh;
-    background-image: url('img/header.jpg');
+    background-image: url('./img/header.jpg');
     background-repeat: no-repeat;
     background-position-y: -400px;
     background-position-X: 400px;
+    font-family: var(--header-font);
 }  
   
 .image{
@@ -59,39 +110,43 @@ header{
 
 .slogan{
     width: 60%;
-    background-color: #90ef90;
+    background-color: var(--primary-color);
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: var(--slogan-font-size);
+    font-weight: var(--header-font-regular);
     height: 25vh;
     clip-path: polygon(0% 0%, 84% 0, 100% 100%, 0% 100%);
 }
 
 header h1{
-    font-size: 16px;
+    font-size: var(--header-font-size);
     margin-bottom: 0;
-    font-weight: bold;
+    font-weight: var(--header-font-bold);
 }
 
 header p { margin-top: 0; }
 
 .text{
-    width: 60%;
+    width: 66%;
     margin: auto;
     text-align: center;
     margin-top: 2%;
-    font-weight: 700;
+    font-weight: var(--primary-font-regular);
     margin-bottom: 2%;
+    color: var(--main-accent-color);
+    font-size: var(--body-font-size);
 }
 
 .container {
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -99,9 +154,74 @@ header p { margin-top: 0; }
 }
 
 .item{
-    border: 2px dashed #ac6665 ;
-    background-color: #f0f0f0;
+    border: 2px solid #ac6665 ;
     border-radius: 20px;
     height: auto;
-    padding: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: var(--menu-font-size);
+}
+
+.item h2{
+    margin-top: 0;
+    font-weight: var(--primary-font-bold);
+    font-size: var(--restaurant-font-size);
+}
+
+.restaurant-logo{
+    width: 150px;
+    height: 150px;
+    float: left;
+    display: block;
+    margin-right: 30px;
+    border: 1px solid black;
+    
+}
+
+.restaurant-location:hover  {
+    fill: var(--primary-color);
+}
+
+.location {
+    position: relative;
+    font-weight: var(--primary-font-regular);
+    font-size: var(--location-font-size);
+    margin-left: 50px;
+}
+.restaurant-location{
+    width: 30px;
+    position: relative;
+    top: 10px;
+    
+}
+
+#sorting-buttons{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sorting-buttons button{
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#add-restaurant {
+    border: 2px dashed var(--secondary-accent-color);
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    color: var(--secondary-accent-color);
+}
+#add-restaurant svg {
+    height: 100%;
+    fill:var(--secondary-accent-color)
+}
+
+#add-restaurant p {
+    margin-top: 5px;
+    margin-left: 10px;
 }

@@ -1,4 +1,5 @@
 import FazerData from './modules/fazer-data';
+import { fetchData } from './modules/network';
 import SodexoData from './modules/sodexo-data';
 SodexoData;
 FazerData;
@@ -78,8 +79,25 @@ const randomDish = (courses) => {
 
 const init = () => {
 
-  renderMenu(SodexoData.coursesFi, 'sodexo');
-  renderMenu(FazerData.coursesFi, 'fazer');
+  // renderMenu(SodexoData.coursesFi, 'sodexo');
+
+  // TODO: update to real data, no need of proxy
+
+  const sodexoUrl = 'https://www.sodexo.fi/ruokalistat/output/weekly_json/152';
+  fetchData(sodexoUrl).then(data =>{
+    console.log(JSON.parse(data.contents));
+  });
+  
+  // Render fazer
+  fetchData(FazerData.dataUrlFi, true).then(data =>{
+    //TODO: Move JSOM parse stuff to network module??
+    // remeber adapter pattern
+    const menuData = JSON.parse(data.contents);
+    //TODO: how to set to  correct day
+    const courses = FazerData.parseDayMenu(menuData.LunchMenus, 1);
+    renderMenu(courses, 'fazer');
+
+  });
   // Event listeners for buttons
   document.getElementById('lang').addEventListener('click', () => {
     langChange();

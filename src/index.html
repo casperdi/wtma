@@ -1,55 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
   <nav>
-      <a href="">Etusivu</a>
-      <a href="">Ruokalistat</a>
-      <a href="">Ravintolat</a>
-      <a href="">Yhteystiedot</a>
-      
+    <a class="selected" href="">Etusivu</a> 
+    <a href="">Ruokalistat</a>
+    <a href="">Ravintolat</a>
+    <a href="">Yhteystiedot</a>
 
 
-    
+
+    <div id="searchbar">
+      <img src="./assets/img/svgSearch.svg" alt="">
       <input type="text" placeholder="Hae ravintolan nimellä...">
-      
-    </nav>
+    </div>
+  </nav>
 
   <header>
     <div class="slogan">
       <h1>Lounari.</h1>
       <p>Missä tänään syötäisiin.</p>
-  </div>
-  
-  <img src="assets/img/header.jpg" alt="mexican food">
+    </div>
+    <div class="image"></div>
   </header>
 
   <main>
-    <p class="text">Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. <br>Palvelu etsii lähelläsin olevat ruokapaikat, sekä näyttää niiden päivittäisen lounaslistan. <br> Viikottaiset lounaslistat ovat myös käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.</p>
-    <button id="lang">FI/EN</button>
+    <p class="text">Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. <br>Palvelu etsii lähelläsin olevat
+      ruokapaikat, sekä näyttää niiden päivittäisen lounaslistan. <br> Viikottaiset lounaslistat ovat myös
+      käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.</p>
+
+
+    <div id="sorting-buttons">
+      <button id="lang">FI/EN</button>
       <button id="sorta">Järjestä menu </button>
       <button id="random">Valitse random ateria</button>
+    </div>
 
     <div class="container">
-      <div class="item item1" >
-        <ul id = 'sodexo'>
+      <div class="item item1">
+        <img class="restaurant-logo" src="./assets/img/sodexo.jpg" alt="">
+        <div class="restaurant-menu">
+          <h2>Metropolia Leiritie
+            <span class="location"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1" x="0px" y="0px" class="restaurant-location" viewBox="0 0 48 60"
+                style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                <g>
+                  <path
+                    d="M9,18c0,7.98,13.63,25.85,14.21,26.61C23.4,44.85,23.69,45,24,45s0.6-0.15,0.79-0.39C25.37,43.85,39,25.98,39,18   c0-8.27-6.73-15-15-15S9,9.73,9,18z M37,18c0,6.27-10.06,20.36-13,24.33C21.06,38.36,11,24.27,11,18c0-7.17,5.83-13,13-13   S37,10.83,37,18z" />
+                  <path
+                    d="M14,18c0,5.51,4.49,10,10,10s10-4.49,10-10S29.51,8,24,8S14,12.49,14,18z M32,18c0,4.41-3.59,8-8,8s-8-3.59-8-8s3.59-8,8-8   S32,13.59,32,18z" />
+                </g>
+              </svg>200m</span>
+            </svg>
+          </h2>
+          <ul id='sodexo'>
 
-        </ul>
+          </ul>
+        </div>
       </div>
       <div class="item item2">
-        <ul id = "fazer">
+        <img class="restaurant-logo" src="./assets/img/fazer.jpg" alt="">
+        <div>
+          <h2>Fazer karamalmi <span class="location"><svg xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" class="restaurant-location"
+                viewBox="0 0 48 60" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                <g>
+                  <path
+                    d="M9,18c0,7.98,13.63,25.85,14.21,26.61C23.4,44.85,23.69,45,24,45s0.6-0.15,0.79-0.39C25.37,43.85,39,25.98,39,18   c0-8.27-6.73-15-15-15S9,9.73,9,18z M37,18c0,6.27-10.06,20.36-13,24.33C21.06,38.36,11,24.27,11,18c0-7.17,5.83-13,13-13   S37,10.83,37,18z" />
+                  <path
+                    d="M14,18c0,5.51,4.49,10,10,10s10-4.49,10-10S29.51,8,24,8S14,12.49,14,18z M32,18c0,4.41-3.59,8-8,8s-8-3.59-8-8s3.59-8,8-8   S32,13.59,32,18z" />
+                </g>
+              </svg>1,9km</span></h2>
+          <ul id='fazer'>
 
-        </ul>
+          </ul>
+        </div>
+      </div>
+      <div class="item" id="add-restaurant">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
+          viewBox="0 0 128 160" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+          <g>
+            <path
+              d="M64,1L64,1C29.2,1,1,29.2,1,64s28.2,63,63,63h0c34.8,0,63-28.2,63-63S98.8,1,64,1z M94,69H69v25H59V69H34V59h25V34h10v25   h25V69z" />
+          </g>
+        </svg>
+        <p>Lisää ravintola</p>
       </div>
     </div>
+
+
+
   </main>
-  
+
 </body>
+
 </html>
