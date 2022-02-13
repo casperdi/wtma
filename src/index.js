@@ -1,9 +1,11 @@
 import FazerData from './modules/fazer-data';
 import { fetchData } from './modules/network';
 import SodexoData from './modules/sodexo-data';
+import colorChange from './modules/theme';
 import { getTodayIndex } from './modules/tools';
 SodexoData;
 FazerData;
+colorChange;
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

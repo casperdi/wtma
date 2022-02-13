@@ -6,7 +6,7 @@ const todayISODate = new Date().toISOString().split('T')[0];
  */
 const getTodayIndex = () => {
     const weekDayIndex = new Date().getDay();
-    if(weekDayIndex < 0){
+    if(weekDayIndex > 0){
       weekDayIndex = weekDayIndex - 1;
     };
     return weekDayIndex;
