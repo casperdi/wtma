@@ -3,7 +3,7 @@
  * @param {String} url - api endpoint url 
  * @param {String} useProxy -optional proxy server
  */
-const fetchData = async(url, useProxy) => {
+const fetchData = async(url, options = {}, useProxy) => {
   if(useProxy === 'allorigins'){
     url = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
   } else if (useProxy === 'fazer-php') {
@@ -13,7 +13,7 @@ const fetchData = async(url, useProxy) => {
 
   let jsonData;
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, options);
     if (!response.ok){
       throw new Error(`HTTP ${response.status} - ${response.statusText}`);
     }
